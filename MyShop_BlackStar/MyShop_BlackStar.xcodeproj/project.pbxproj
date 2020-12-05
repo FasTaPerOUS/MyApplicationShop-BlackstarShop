@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1D39A32570226A00568DE0 /* CategoriesLoadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */; };
+		2C53BD8D25714D8A00D5132C /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */; };
+		2C55D2FB2577B5D400E0765C /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */; };
+		2C64454A2572AA25006BDE7A /* SubCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */; };
+		2C64AD12257A4133005975F7 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD11257A4133005975F7 /* ItemsViewController.swift */; };
 		2C6B478025681A160046015D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B477F25681A160046015D /* AppDelegate.swift */; };
 		2C6B478225681A160046015D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B478125681A160046015D /* SceneDelegate.swift */; };
-		2C6B478425681A160046015D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B478325681A160046015D /* ViewController.swift */; };
+		2C6B478425681A160046015D /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B478325681A160046015D /* CategoriesViewController.swift */; };
 		2C6B478725681A160046015D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478525681A160046015D /* Main.storyboard */; };
 		2C6B478925681A1E0046015D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478825681A1E0046015D /* Assets.xcassets */; };
 		2C6B478C25681A1E0046015D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesLoadProtocol.swift; sourceTree = "<group>"; };
+		2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStruct.swift; sourceTree = "<group>"; };
+		2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesViewController.swift; sourceTree = "<group>"; };
+		2C64AD11257A4133005975F7 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		2C6B477C25681A160046015D /* MyShop_BlackStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShop_BlackStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6B477F25681A160046015D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C6B478125681A160046015D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2C6B478325681A160046015D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C6B478325681A160046015D /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		2C6B478625681A160046015D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C6B478825681A1E0046015D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C6B478B25681A1E0046015D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,11 +68,16 @@
 			children = (
 				2C6B477F25681A160046015D /* AppDelegate.swift */,
 				2C6B478125681A160046015D /* SceneDelegate.swift */,
-				2C6B478325681A160046015D /* ViewController.swift */,
+				2C6B478325681A160046015D /* CategoriesViewController.swift */,
+				2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */,
+				2C64AD11257A4133005975F7 /* ItemsViewController.swift */,
 				2C6B478525681A160046015D /* Main.storyboard */,
 				2C6B478825681A1E0046015D /* Assets.xcassets */,
 				2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */,
 				2C6B478D25681A1E0046015D /* Info.plist */,
+				2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */,
+				2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */,
+				2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */,
 			);
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
@@ -138,9 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C6B478425681A160046015D /* ViewController.swift in Sources */,
+				2C53BD8D25714D8A00D5132C /* CategoryTableViewCell.swift in Sources */,
+				2C6B478425681A160046015D /* CategoriesViewController.swift in Sources */,
+				2C1D39A32570226A00568DE0 /* CategoriesLoadProtocol.swift in Sources */,
 				2C6B478025681A160046015D /* AppDelegate.swift in Sources */,
 				2C6B478225681A160046015D /* SceneDelegate.swift in Sources */,
+				2C64AD12257A4133005975F7 /* ItemsViewController.swift in Sources */,
+				2C55D2FB2577B5D400E0765C /* CategoryStruct.swift in Sources */,
+				2C64454A2572AA25006BDE7A /* SubCategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
