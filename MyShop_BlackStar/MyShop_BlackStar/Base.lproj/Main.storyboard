@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Categories-->
+        <!--Категории-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CategoriesViewController" customModule="MyShop_BlackStar" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,7 +72,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Categories" id="tD0-6z-cfJ"/>
+                    <navigationItem key="navigationItem" title="Категории" id="tD0-6z-cfJ"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="03v-9L-3hW" id="zHw-Fl-dOv"/>
                     </connections>
@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="1952.1739130434785" y="138.61607142857142"/>
         </scene>
-        <!--Subcategories-->
+        <!--ы-->
         <scene sceneID="uRw-dv-AYk">
             <objects>
                 <viewController id="0RT-kC-4KH" customClass="SubCategoriesViewController" customModule="MyShop_BlackStar" customModuleProvider="target" sceneMemberID="viewController">
@@ -163,7 +163,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oqZ-2m-4ZF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Subcategories" id="R9m-Tt-R5h"/>
+                    <navigationItem key="navigationItem" title="ы" id="R9m-Tt-R5h"/>
                     <connections>
                         <outlet property="extraButton" destination="eyi-Un-B4V" id="6CB-RP-Pwa"/>
                         <outlet property="extraLabel" destination="kbC-4z-7Vi" id="t1E-G8-Sb8"/>
@@ -272,11 +272,11 @@
             </objects>
             <point key="canvasLocation" x="4684" y="139"/>
         </scene>
-        <!--Shop-->
+        <!--Магазин-->
         <scene sceneID="2Sf-Gb-jgJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xfc-Bf-nlr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shop" id="X5c-wv-rL8"/>
+                    <tabBarItem key="tabBarItem" title="Магазин" id="X5c-wv-rL8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="58K-Xu-9kX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -310,7 +310,7 @@
             </objects>
             <point key="canvasLocation" x="-152" y="795"/>
         </scene>
-        <!--Cart-->
+        <!--Корзина-->
         <scene sceneID="Aj7-Zb-yXF">
             <objects>
                 <viewController id="xhC-dL-BTB" sceneMemberID="viewController">
@@ -364,7 +364,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uLt-Ly-H4e"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cart" id="K6F-vY-yZG"/>
+                    <tabBarItem key="tabBarItem" title="Корзина" id="K6F-vY-yZG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SgS-d0-EDa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
