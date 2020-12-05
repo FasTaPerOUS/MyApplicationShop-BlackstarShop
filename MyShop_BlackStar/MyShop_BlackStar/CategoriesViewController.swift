@@ -9,6 +9,7 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
     @IBOutlet weak var categoriesTableView: UITableView!
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         categoriesLoad(completion: { result in
             switch result {
             case .success(let z):
@@ -24,7 +25,6 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
                 print(err.localizedDescription)
             }
         })
-        super.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -37,6 +37,7 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
         }
     }
     
+    //парсинг
     func categoriesLoad(completion: @escaping (Result<Welcome, Error>) -> Void) {
         URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
             guard let data = data else { return }

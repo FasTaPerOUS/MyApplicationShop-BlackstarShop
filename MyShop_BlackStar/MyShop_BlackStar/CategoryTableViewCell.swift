@@ -1,6 +1,3 @@
-//
-//  CategoryTableViewCell.swift
-//  infoShop_BlackStar
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
@@ -11,7 +8,6 @@ class CategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         logoImageView.layer.cornerRadius = logoImageView.bounds.height / 2
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

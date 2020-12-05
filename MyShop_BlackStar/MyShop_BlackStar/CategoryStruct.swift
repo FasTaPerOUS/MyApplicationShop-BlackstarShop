@@ -1,6 +1,5 @@
 struct Category: Codable {
     let name: String
-//    let sortOrder: SortOrder
     let sortOrder: Int
     let iconImage: String
     let subCategories: [SubCategory]
@@ -61,7 +60,7 @@ struct SubCategory: Codable {
 
 typealias Welcome = [String: Category]
 
-
+//используется для удобства сортировки
 struct CompareIDCategory {
     let id: String
     let myStruct: Category
