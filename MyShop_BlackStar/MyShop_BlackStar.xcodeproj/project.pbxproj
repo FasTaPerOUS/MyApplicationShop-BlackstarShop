@@ -51,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				2C6B477E25681A160046015D /* MyShop_BlackStar */,
-				2C6B477D25681A160046015D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +60,7 @@
 				2C6B477C25681A160046015D /* MyShop_BlackStar.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2C6B477E25681A160046015D /* MyShop_BlackStar */ = {
@@ -78,6 +78,7 @@
 				2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */,
 				2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */,
 				2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */,
+				2C6B477D25681A160046015D /* Products */,
 			);
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
