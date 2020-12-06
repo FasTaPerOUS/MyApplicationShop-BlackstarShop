@@ -18,6 +18,7 @@
 		2C6B478725681A160046015D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478525681A160046015D /* Main.storyboard */; };
 		2C6B478925681A1E0046015D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478825681A1E0046015D /* Assets.xcassets */; };
 		2C6B478C25681A1E0046015D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */; };
+		96819FDB1DF274E9CD8174D7 /* Pods_MyShop_BlackStar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B390688578A4F1BB3CCAC865 /* Pods_MyShop_BlackStar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,9 @@
 		2C6B478825681A1E0046015D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C6B478B25681A1E0046015D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C6B478D25681A1E0046015D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7999FBA7C356A4F3CFBE71E /* Pods-MyShop_BlackStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShop_BlackStar.release.xcconfig"; path = "Target Support Files/Pods-MyShop_BlackStar/Pods-MyShop_BlackStar.release.xcconfig"; sourceTree = "<group>"; };
+		B390688578A4F1BB3CCAC865 /* Pods_MyShop_BlackStar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyShop_BlackStar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46381D8F51658796A55D6A1 /* Pods-MyShop_BlackStar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyShop_BlackStar.debug.xcconfig"; path = "Target Support Files/Pods-MyShop_BlackStar/Pods-MyShop_BlackStar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96819FDB1DF274E9CD8174D7 /* Pods_MyShop_BlackStar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				2C6B477E25681A160046015D /* MyShop_BlackStar */,
+				D0D5638AA4659D03DC0B04B5 /* Pods */,
+				FA76F3706BB6F769F9380205 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +90,24 @@
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
 		};
+		D0D5638AA4659D03DC0B04B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E46381D8F51658796A55D6A1 /* Pods-MyShop_BlackStar.debug.xcconfig */,
+				A7999FBA7C356A4F3CFBE71E /* Pods-MyShop_BlackStar.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA76F3706BB6F769F9380205 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B390688578A4F1BB3CCAC865 /* Pods_MyShop_BlackStar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -90,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C6B479025681A1E0046015D /* Build configuration list for PBXNativeTarget "MyShop_BlackStar" */;
 			buildPhases = (
+				1D166318587AAFDD77332665 /* [CP] Check Pods Manifest.lock */,
 				2C6B477825681A160046015D /* Sources */,
 				2C6B477925681A160046015D /* Frameworks */,
 				2C6B477A25681A160046015D /* Resources */,
+				F8846EDCCEE66FAB976B4D87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D166318587AAFDD77332665 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyShop_BlackStar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8846EDCCEE66FAB976B4D87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyShop_BlackStar/Pods-MyShop_BlackStar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyShop_BlackStar/Pods-MyShop_BlackStar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyShop_BlackStar/Pods-MyShop_BlackStar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C6B477825681A160046015D /* Sources */ = {
@@ -303,6 +372,7 @@
 		};
 		2C6B479125681A1E0046015D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E46381D8F51658796A55D6A1 /* Pods-MyShop_BlackStar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -320,6 +390,7 @@
 		};
 		2C6B479225681A1E0046015D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7999FBA7C356A4F3CFBE71E /* Pods-MyShop_BlackStar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
