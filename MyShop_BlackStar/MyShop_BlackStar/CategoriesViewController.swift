@@ -1,7 +1,6 @@
 import UIKit
 
 class CategoriesViewController: UIViewController, CategoriesLoad {
-    var infoArray = [[String]]()
     var info = [CompareIDCategory]()
     
     let url = URL(string: "https://blackstarshop.ru/index.php?route=api/v1/categories")!
