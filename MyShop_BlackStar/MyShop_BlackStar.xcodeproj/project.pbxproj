@@ -3,15 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2C1D39A32570226A00568DE0 /* CategoriesLoadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */; };
 		2C53BD8D25714D8A00D5132C /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */; };
 		2C55D2FB2577B5D400E0765C /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */; };
+		2C57EA72257CF4E400B3E6E9 /* ItemStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */; };
+		2C57EA74257D22C000B3E6E9 /* ItemsLoadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */; };
+		2C5F793A257FED9D003D5A16 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7939257FED9D003D5A16 /* ItemViewController.swift */; };
 		2C64454A2572AA25006BDE7A /* SubCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */; };
 		2C64AD12257A4133005975F7 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD11257A4133005975F7 /* ItemsViewController.swift */; };
+		2C68FEE3257E90DC00F348F0 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68FEE2257E90DC00F348F0 /* ItemCollectionViewCell.swift */; };
 		2C6B478025681A160046015D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B477F25681A160046015D /* AppDelegate.swift */; };
 		2C6B478225681A160046015D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B478125681A160046015D /* SceneDelegate.swift */; };
 		2C6B478425681A160046015D /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B478325681A160046015D /* CategoriesViewController.swift */; };
@@ -25,8 +29,12 @@
 		2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesLoadProtocol.swift; sourceTree = "<group>"; };
 		2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStruct.swift; sourceTree = "<group>"; };
+		2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStruct.swift; sourceTree = "<group>"; };
+		2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsLoadProtocol.swift; sourceTree = "<group>"; };
+		2C5F7939257FED9D003D5A16 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesViewController.swift; sourceTree = "<group>"; };
 		2C64AD11257A4133005975F7 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		2C68FEE2257E90DC00F348F0 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C6B477C25681A160046015D /* MyShop_BlackStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShop_BlackStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6B477F25681A160046015D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C6B478125681A160046015D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,13 +86,17 @@
 				2C6B478325681A160046015D /* CategoriesViewController.swift */,
 				2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */,
 				2C64AD11257A4133005975F7 /* ItemsViewController.swift */,
+				2C5F7939257FED9D003D5A16 /* ItemViewController.swift */,
 				2C6B478525681A160046015D /* Main.storyboard */,
 				2C6B478825681A1E0046015D /* Assets.xcassets */,
 				2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */,
 				2C6B478D25681A1E0046015D /* Info.plist */,
+				2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */,
 				2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */,
 				2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */,
-				2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */,
+				2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */,
+				2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */,
+				2C68FEE2257E90DC00F348F0 /* ItemCollectionViewCell.swift */,
 				2C6B477D25681A160046015D /* Products */,
 			);
 			path = MyShop_BlackStar;
@@ -96,7 +108,6 @@
 				E46381D8F51658796A55D6A1 /* Pods-MyShop_BlackStar.debug.xcconfig */,
 				A7999FBA7C356A4F3CFBE71E /* Pods-MyShop_BlackStar.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -223,8 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C57EA74257D22C000B3E6E9 /* ItemsLoadProtocol.swift in Sources */,
+				2C68FEE3257E90DC00F348F0 /* ItemCollectionViewCell.swift in Sources */,
+				2C57EA72257CF4E400B3E6E9 /* ItemStruct.swift in Sources */,
 				2C53BD8D25714D8A00D5132C /* CategoryTableViewCell.swift in Sources */,
 				2C6B478425681A160046015D /* CategoriesViewController.swift in Sources */,
+				2C5F793A257FED9D003D5A16 /* ItemViewController.swift in Sources */,
 				2C1D39A32570226A00568DE0 /* CategoriesLoadProtocol.swift in Sources */,
 				2C6B478025681A160046015D /* AppDelegate.swift in Sources */,
 				2C6B478225681A160046015D /* SceneDelegate.swift in Sources */,
