@@ -1,22 +1,16 @@
-//
-//  ItemStruct.swift
-//  MyShop_BlackStar
-//
-//  Created by Norik on 06.12.2020.
-//  Copyright © 2020 Norik. All rights reserved.
-//
-
 import Foundation
 
 struct Item: Codable {
     let name: String
-    let description: String
+    var description: String
     let colorName: String
     let sortOrder: Int
     let mainImage: String
     let productImages: [ProductImage]
     let offers: [Offer]
     let price: String
+    let oldPrice: String
+    let tag: String
     
     private enum CodingKeys: String, CodingKey {
         case name
@@ -27,12 +21,29 @@ struct Item: Codable {
         case productImages
         case offers
         case price
+        case oldPrice
+        case tag
+    }
+    
+    init(name: String, description: String, colorName: String, sortOrder: Int, mainImage: String, productImages: [ProductImage], offers: [Offer], price: String, oldPrice: String, tag: String) {
+        self.name = name
+        self.description = description
+        self.colorName = colorName
+        self.sortOrder = sortOrder
+        self.mainImage = mainImage
+        self.productImages = productImages
+        self.offers = offers
+        self.price = price
+        self.oldPrice = oldPrice
+        self.tag = tag
     }
     	
     init(from decoder: Decoder) {
         let container = try! decoder.container(keyedBy: CodingKeys.self)
         name = try! container.decode(String.self, forKey: .name)
         description = try! container.decode(String.self, forKey: .description)
+        description = description.replacingOccurrences(of: "&nbsp;", with: " ")
+        description = description.replacingOccurrences(of: "  ", with: " ")
         colorName = try! container.decode(String.self, forKey: .colorName)
         if let sortOrderString = try? container.decode(String.self, forKey: .sortOrder) {
             sortOrder = Int(sortOrderString)!
@@ -43,6 +54,13 @@ struct Item: Codable {
         productImages = try! container.decode([ProductImage].self, forKey: .productImages)
         offers = try! container.decode([Offer].self, forKey: .offers)
         price = try! container.decode(String.self, forKey: .price)
+        if let oldPriceString = try? container.decode(String.self, forKey: .oldPrice) {
+            oldPrice = oldPriceString
+            tag = try! container.decode(String.self, forKey: .tag)
+        } else {
+            oldPrice = "No old price"
+            tag = "No discount"
+        }
     }
 }
 
@@ -53,6 +71,11 @@ struct ProductImage: Codable {
     private enum CodingKeys: String, CodingKey {
         case imageURL
         case sortOrder
+    }
+    
+    init(imageURL: String, sortOrder: Int) {
+        self.imageURL = imageURL
+        self.sortOrder = sortOrder
     }
     
     init(from decoder: Decoder) {
@@ -75,6 +98,12 @@ struct Offer: Codable {
         case size
         case productOfferID
         case quantity
+    }
+    
+    init(size: String, productOfferID: Int, quantity: Int) {
+        self.size = size
+        self.productOfferID = productOfferID
+        self.quantity = quantity
     }
     
     init(from decoder: Decoder) {
@@ -104,6 +133,8 @@ struct OneItemWithAllColors {
     var productImages: [[ProductImage]]
     var offers: [[Offer]]
     var price: [String]
+    var oldPrice: [String]
+    var tag: [String]
 }
 
 
