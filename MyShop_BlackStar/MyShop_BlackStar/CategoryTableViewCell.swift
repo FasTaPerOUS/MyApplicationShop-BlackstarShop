@@ -7,7 +7,7 @@ class CategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        logoImageView.layer.cornerRadius = logoImageView.bounds.height / 2
+        logoImageView.layer.cornerRadius = 10 //logoImageView.bounds.height / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
