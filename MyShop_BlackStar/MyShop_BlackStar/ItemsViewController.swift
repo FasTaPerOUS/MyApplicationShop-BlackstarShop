@@ -49,7 +49,16 @@ class ItemsViewController: UIViewController, ItemsLoad {
     func creatingItemsForCollection() {
         for (index, el) in info.enumerated() {
             let i = el.price.firstIndex(of: ".") ?? el.price.endIndex
-            let newEl = OneItemWithAllColors(name: el.name, description: el.description, colorName: [el.colorName], sortOrder: el.sortOrder, mainImage: [el.mainImage], productImages: [el.productImages], offers: [el.offers], price: [String(el.price[..<i])])
+            var oldPrice: String
+            var tag: String
+            if el.oldPrice == "No old price" {
+                oldPrice = "No old price"
+                tag = "No discount"
+            } else {
+                oldPrice = String(el.oldPrice[..<i])
+                tag = el.tag
+            }
+            let newEl = OneItemWithAllColors(name: el.name, description: el.description, colorName: [el.colorName], sortOrder: el.sortOrder, mainImage: [el.mainImage], productImages: [el.productImages], offers: [el.offers], price: [String(el.price[..<i])], oldPrice: [oldPrice], tag: [tag])
             if index == 0 {
                 items.append(newEl)
             } else {
@@ -59,6 +68,8 @@ class ItemsViewController: UIViewController, ItemsLoad {
                     items[items.count - 1].price.append(String(el.price[..<i]))
                     items[items.count - 1].offers.append(el.offers)
                     items[items.count - 1].productImages.append(el.productImages)
+                    items[items.count - 1].oldPrice.append(oldPrice)
+                    items[items.count - 1].tag.append(tag)
                 } else { items.append(newEl) }
             }
         }
@@ -95,7 +106,7 @@ extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         }
         let data = try? Data(contentsOf: url!)
         cell.itemImageView.image = UIImage(data: data!)
-        cell.priceLabel.text = items[indexPath.row].price[0] + " руб."
+        cell.priceLabel.text = items[indexPath.row].price[0] + " ₽"
         return cell
     }
     
