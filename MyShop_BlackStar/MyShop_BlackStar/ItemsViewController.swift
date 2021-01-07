@@ -49,13 +49,14 @@ class ItemsViewController: UIViewController, ItemsLoad {
     func creatingItemsForCollection() {
         for (index, el) in info.enumerated() {
             let i = el.price.firstIndex(of: ".") ?? el.price.endIndex
+            let i2 = el.oldPrice.firstIndex(of: ".") ?? el.oldPrice.endIndex
             var oldPrice: String
             var tag: String
             if el.oldPrice == "No old price" {
                 oldPrice = "No old price"
                 tag = "No discount"
             } else {
-                oldPrice = String(el.oldPrice[..<i])
+                oldPrice = String(el.oldPrice[..<i2])
                 tag = el.tag
             }
             let newEl = OneItemWithAllColors(name: el.name, description: el.description, colorName: [el.colorName], sortOrder: el.sortOrder, mainImage: [el.mainImage], productImages: [el.productImages], offers: [el.offers], price: [String(el.price[..<i])], oldPrice: [oldPrice], tag: [tag])
@@ -98,6 +99,7 @@ extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ItemCollectionViewCell
         cell.nameLabel.text = items[indexPath.row].name
+        
         var url = URL(string: "https://blackstarshop.ru/")
         if items[indexPath.row].mainImage[0] != "" {
             url = URL(string: "https://blackstarshop.ru/" + items[indexPath.row].mainImage[0])!
@@ -106,6 +108,16 @@ extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         }
         let data = try? Data(contentsOf: url!)
         cell.itemImageView.image = UIImage(data: data!)
+        
+        if items[indexPath.row].oldPrice[0] == "No old price" {
+            cell.oldPriceLabel.isHidden = true
+        } else {
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: items[indexPath.row].oldPrice[0])
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
+            cell.oldPriceLabel.attributedText = attributeString
+            cell.leftConstraint.constant = 30 + cell.oldPriceLabel.frame.width
+        }
+
         cell.priceLabel.text = items[indexPath.row].price[0] + " ₽"
         return cell
     }

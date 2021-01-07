@@ -5,6 +5,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var oldPriceLabel: UILabel!
+    @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
     
     override func awakeFromNib() {

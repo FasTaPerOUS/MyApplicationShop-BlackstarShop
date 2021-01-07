@@ -4,6 +4,8 @@ import RealmSwift
 class CartViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var discountLabel: UILabel!
     @IBOutlet weak var endPriceLabel: UILabel!
     
     @IBOutlet weak var checkoutButton: UIButton!
@@ -16,14 +18,14 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         checkoutButton.layer.cornerRadius = 15
         all = listAll()
-        endPriceLabel.text = endPrice()
+        countPrices()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         all = listAll()
         tableView.reloadData()
-        endPriceLabel.text = endPrice()
+        countPrices()
     }
     
     @IBAction func deleteCart() {
@@ -31,8 +33,8 @@ class CartViewController: UIViewController {
         let deleteAction = UIAlertAction(title: "Очистить", style: .default) { (action: UIAlertAction!) -> Void in
             self.remove()
             self.all = self.listAll()
+            self.countPrices()
             self.tableView.reloadData()
-            self.endPriceLabel.text = self.endPrice()
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .default) { (action: UIAlertAction!) -> Void in }
         alert.addAction(cancelAction)
@@ -41,12 +43,20 @@ class CartViewController: UIViewController {
 
     }
     
-    func endPrice() -> String {
-        var sum = 0
+    func countPrices() {
+        var sumPWD = 0
+        var sumP = 0
         for el in all {
-            sum += Int(el.price)
+            if el.oldPrice != 99999 {
+                sumPWD += Int(el.oldPrice)
+            } else {
+                sumPWD += Int(el.price)
+            }
+            sumP += Int(el.price)
         }
-        return "Итого: " + String(sum) + " ₽"
+        priceLabel.text = "Стоимость: " + String(sumPWD)
+        discountLabel.text = "Экономия: " + String(sumPWD - sumP)
+        endPriceLabel.text = "Цена: " + String(sumP)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,9 +74,9 @@ class CartViewController: UIViewController {
         if segue.identifier == "goodbye" {
             let vc = segue.destination as! FinishViewController
             if countAll() == 0 {
-                vc.text = "Добавьте товары в корзину чтобы оформить заказ\nчтобы продолжить тестирование нажмите кнопку назад"
+                vc.text = "Добавьте товары в корзину чтобы оформить заказ.\nЧтобы продолжить тестирование нажмите кнопку назад."
             } else {
-                vc.text = "Вот и конец моего проекта, вполне вероятно, что он будет дальше развиваться, желаем удачи!\nчтобы продолжить тестирование нажмите кнопку назад"
+                vc.text = "Вот и конец моего проекта, вполне вероятно, что он будет дальше развиваться, желаем удачи!\nЧтобы продолжить тестирование нажмите кнопку назад."
             }
         }
     }
@@ -84,9 +94,18 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         cell.nameLabel.text = all[indexPath.row].name
         cell.sizeLabel.text = "Размер: " + all[indexPath.row].size
         cell.priceLabel.text = String(all[indexPath.row].price) + " ₽"
+        
         let url = URL(string: "https://blackstarshop.ru/" + all[indexPath.row].mainImageURL)!
         let data = try? Data(contentsOf: url)
         cell.itemImageView.image = UIImage(data: data!)
+        
+        if all[indexPath.row].tag == "No discount" {
+            cell.oldPriceLabel.isHidden = true
+            cell.tagLabel.isHidden = true
+        } else {
+            cell.oldPriceLabel.text = String(all[indexPath.row].oldPrice)
+            cell.tagLabel.text = all[indexPath.row].tag
+        }
         return cell
     }
     
@@ -94,7 +113,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             delete(index: indexPath.row)
             all = listAll()
-            endPriceLabel.text = endPrice()
+            countPrices()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
         }
