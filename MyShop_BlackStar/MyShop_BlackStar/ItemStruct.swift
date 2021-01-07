@@ -1,7 +1,7 @@
 import Foundation
 
 struct Item: Codable {
-    let name: String
+    var name: String
     var description: String
     let colorName: String
     let sortOrder: Int
@@ -41,9 +41,11 @@ struct Item: Codable {
     init(from decoder: Decoder) {
         let container = try! decoder.container(keyedBy: CodingKeys.self)
         name = try! container.decode(String.self, forKey: .name)
+        name = name.replacingOccurrences(of: "&amp;", with: "&")
         description = try! container.decode(String.self, forKey: .description)
         description = description.replacingOccurrences(of: "&nbsp;", with: " ")
         description = description.replacingOccurrences(of: "  ", with: " ")
+        description = description.replacingOccurrences(of: "&amp;", with: "&")
         colorName = try! container.decode(String.self, forKey: .colorName)
         if let sortOrderString = try? container.decode(String.self, forKey: .sortOrder) {
             sortOrder = Int(sortOrderString)!
