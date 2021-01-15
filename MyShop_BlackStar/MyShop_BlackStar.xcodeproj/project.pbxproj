@@ -90,6 +90,45 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		2C6AA25F25B1D34800A70F0E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */,
+				2C68FEE2257E90DC00F348F0 /* ItemCollectionViewCell.swift */,
+				2C6669C725851EE90080848C /* PictureCollectionViewCell.swift */,
+				2CBCC1D125862C890055882C /* MultiTableViewCell.swift */,
+				2C6CB38425A206DD00E76C3E /* CartTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2C6AA26025B1D38600A70F0E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */,
+				2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		2C6AA26125B1D3BF00A70F0E /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */,
+				2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */,
+				2C55AF2F2594DE930001BE12 /* ItemsRealm.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		2C6AA26225B1D40400A70F0E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				2CC1C9F625A3531500D4F59E /* RealmBaseFunctional.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		2C6B477325681A160046015D = {
 			isa = PBXGroup;
 			children = (
@@ -113,23 +152,16 @@
 			children = (
 				2C6B477F25681A160046015D /* AppDelegate.swift */,
 				2C6B478125681A160046015D /* SceneDelegate.swift */,
+				2C6AA26025B1D38600A70F0E /* Categories */,
+				2C6AA25F25B1D34800A70F0E /* Cells */,
 				2C6AA25E25B1CF7C00A70F0E /* Controllers */,
+				2C6AA26125B1D3BF00A70F0E /* Items */,
+				2C6AA26225B1D40400A70F0E /* Realm */,
 				2C6B478525681A160046015D /* Main.storyboard */,
 				2C6B478825681A1E0046015D /* Assets.xcassets */,
 				2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */,
 				2C6B478D25681A1E0046015D /* Info.plist */,
-				2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */,
-				2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */,
-				2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */,
-				2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */,
-				2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */,
-				2C68FEE2257E90DC00F348F0 /* ItemCollectionViewCell.swift */,
-				2C55AF2F2594DE930001BE12 /* ItemsRealm.swift */,
-				2C6669C725851EE90080848C /* PictureCollectionViewCell.swift */,
-				2CBCC1D125862C890055882C /* MultiTableViewCell.swift */,
-				2C6CB38425A206DD00E76C3E /* CartTableViewCell.swift */,
 				2C6B477D25681A160046015D /* Products */,
-				2CC1C9F625A3531500D4F59E /* RealmBaseFunctional.swift */,
 			);
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
