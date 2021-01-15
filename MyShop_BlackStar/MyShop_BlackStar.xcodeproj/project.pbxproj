@@ -76,6 +76,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C6AA25E25B1CF7C00A70F0E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C6B478325681A160046015D /* CategoriesViewController.swift */,
+				2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */,
+				2C64AD11257A4133005975F7 /* ItemsViewController.swift */,
+				2C5F7939257FED9D003D5A16 /* ItemViewController.swift */,
+				2CBCC1CF25862C3C0055882C /* MultiViewController.swift */,
+				2C573EBD258E5F6C00748490 /* CartViewController.swift */,
+				2CC1C9F825A3A2E000D4F59E /* FinishViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		2C6B477325681A160046015D = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +113,7 @@
 			children = (
 				2C6B477F25681A160046015D /* AppDelegate.swift */,
 				2C6B478125681A160046015D /* SceneDelegate.swift */,
-				2C6B478325681A160046015D /* CategoriesViewController.swift */,
-				2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */,
-				2C64AD11257A4133005975F7 /* ItemsViewController.swift */,
-				2C5F7939257FED9D003D5A16 /* ItemViewController.swift */,
-				2CBCC1CF25862C3C0055882C /* MultiViewController.swift */,
-				2C573EBD258E5F6C00748490 /* CartViewController.swift */,
-				2CC1C9F825A3A2E000D4F59E /* FinishViewController.swift */,
+				2C6AA25E25B1CF7C00A70F0E /* Controllers */,
 				2C6B478525681A160046015D /* Main.storyboard */,
 				2C6B478825681A1E0046015D /* Assets.xcassets */,
 				2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */,
