@@ -1,14 +1,20 @@
 import UIKit
 
 class CategoriesViewController: UIViewController, CategoriesLoad {
+    
     var info = [CompareIDCategory]()
     
     let url = URL(string: "https://blackstarshop.ru/index.php?route=api/v1/categories")!
 
     @IBOutlet weak var categoriesTableView: UITableView!
     
+    var myAI: ActivityIndicator?
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        myAI = ActivityIndicator(view: self.view)
+        DispatchQueue.main.async {
+            self.startAnimating()
+        }
         categoriesLoad(completion: { result in
             switch result {
             case .success(let z):
@@ -19,21 +25,16 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
                     }
                     self.info.sort(by: {$0.myStruct.sortOrder < $1.myStruct.sortOrder})
                     self.categoriesTableView.reloadData()
+                    self.stopAnimating()
                 }
             case .failure(let err):
+                DispatchQueue.main.async {
+                    self.stopAnimating()
+                }
                 print(err.localizedDescription)
             }
         })
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? UITableViewCell, let index = categoriesTableView.indexPath(for: cell) {
-            let vc = segue.destination as! SubCategoriesViewController
-            vc.info = info[index.row].myStruct.subCategories
-            if info[index.row].myStruct.subCategories.count == 0 {
-                vc.extraID = Int(info[index.row].id)
-            }
-        }
+        super.viewDidLoad()
     }
     
     //парсинг
@@ -51,7 +52,7 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
 
 }
 
-extension CategoriesViewController: UITableViewDataSource {
+extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         info.count
     }
@@ -70,5 +71,33 @@ extension CategoriesViewController: UITableViewDataSource {
         cell.nameLabel.text = info[indexPath.row].myStruct.name
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if info[indexPath.row].myStruct.subCategories.count != 0 {
+            let vc = storyboard?.instantiateViewController(identifier: "subCategories") as! SubCategoriesViewController
+            vc.info = info[indexPath.row].myStruct.subCategories
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = storyboard?.instantiateViewController(identifier: "items") as! ItemsViewController
+            vc.urlString += String(info[indexPath.row].id)
+            navigationController?.pushViewController(vc, animated: true)
+//                show(vc, sender: nil)
+//                present(vc, animated: true, completion: nil)
+        }
+    }
 }
 	
+extension CategoriesViewController: AIFunctional {
+    func startAnimating() {
+        myAI!.activityIndicator.startAnimating()
+        self.view.addSubview(myAI!.backgorundView)
+        self.view.addSubview(myAI!.activityIndicator)
+    }
+    
+    func stopAnimating() {
+        myAI!.activityIndicator.stopAnimating()
+        myAI!.activityIndicator.removeFromSuperview()
+        myAI!.backgorundView.removeFromSuperview()
+    }
+}
