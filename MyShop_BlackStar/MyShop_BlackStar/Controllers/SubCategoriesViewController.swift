@@ -11,22 +11,15 @@ import UIKit
 class SubCategoriesViewController: UIViewController {
     
     @IBOutlet weak var subCategoriesTable: UITableView!
-    @IBOutlet weak var extraLabel: UILabel!
-    @IBOutlet weak var extraButton: UIButton!
     
     var info = [SubCategory]()
     var extraID: Int? = nil
     
+    var myAI: ActivityIndicator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        checker()
-    }
-    
-    func checker() {
-        if info.count == 0 {
-            self.subCategoriesTable.isHidden = true
-            return
-        }
+        myAI = ActivityIndicator(view: self.view)
         info.sort(by: {$0.sortOrder < $1.sortOrder && $0.name < $1.name})
     }
     
@@ -62,3 +55,18 @@ extension SubCategoriesViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension SubCategoriesViewController: AIFunctional {
+    func startAnimating() {
+        myAI!.activityIndicator.startAnimating()
+        self.view.addSubview(myAI!.backgorundView)
+        self.view.addSubview(myAI!.activityIndicator)
+    }
+    
+    func stopAnimating() {
+        myAI!.activityIndicator.stopAnimating()
+        myAI!.activityIndicator.removeFromSuperview()
+        myAI!.backgorundView.removeFromSuperview()
+    }
+}
+
