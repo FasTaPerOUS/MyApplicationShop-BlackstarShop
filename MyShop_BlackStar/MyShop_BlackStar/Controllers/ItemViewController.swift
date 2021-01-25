@@ -188,10 +188,19 @@ extension ItemViewController: UICollectionViewDataSource {
 
 extension ItemViewController: ItemControllerDelegate {
     func addItem(withSize: String) {
+        let all = self.realm.objects(ItemsRealm.self)
+        for el in all {
+            if el.name == info.name && el.colorName == info.colorName[currIndex] && el.size == withSize {
+                try! realm.write {
+                    el.quantity += 1
+                }
+                return
+            }
+        }
         let object = ItemsRealm()
         object.name = info.name
         object.descript = info.description
-        object.colorName = info.colorName[currIndex]	
+        object.colorName = info.colorName[currIndex]
         object.mainImageURL = info.mainImage[currIndex]
         for el in info.productImages[currIndex] {
             object.productImagesURL.append(el.imageURL)
@@ -200,7 +209,7 @@ extension ItemViewController: ItemControllerDelegate {
         object.price = Int(info.price[currIndex]) ?? 99999
         object.oldPrice = Int(info.oldPrice[currIndex]) ?? 99999
         object.tag = info.tag[currIndex]
-        object.quantity = 0
+        object.quantity = 1
         try! realm.write {
             realm.add(object)
         }
@@ -231,4 +240,3 @@ extension ItemViewController: AIFunctional {
         myAI!.backgorundView.removeFromSuperview()
     }
 }
-	
