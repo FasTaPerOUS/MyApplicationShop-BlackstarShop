@@ -82,8 +82,6 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
             let vc = storyboard?.instantiateViewController(identifier: "items") as! ItemsViewController
             vc.urlString += String(info[indexPath.row].id)
             navigationController?.pushViewController(vc, animated: true)
-//                show(vc, sender: nil)
-//                present(vc, animated: true, completion: nil)
         }
     }
 }
