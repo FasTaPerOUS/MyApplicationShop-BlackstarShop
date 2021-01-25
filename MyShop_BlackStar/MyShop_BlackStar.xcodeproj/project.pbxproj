@@ -26,6 +26,8 @@
 		2C6B478925681A1E0046015D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478825681A1E0046015D /* Assets.xcassets */; };
 		2C6B478C25681A1E0046015D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */; };
 		2C6CB38525A206DD00E76C3E /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CB38425A206DD00E76C3E /* CartTableViewCell.swift */; };
+		2C7C151225B89FA400BAD927 /* ProbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7C151125B89FA400BAD927 /* ProbeViewController.swift */; };
+		2CA442B925B84F7900056327 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA442B825B84F7900056327 /* ActivityIndicator.swift */; };
 		2CBCC1D025862C3C0055882C /* MultiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCC1CF25862C3C0055882C /* MultiViewController.swift */; };
 		2CBCC1D225862C890055882C /* MultiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBCC1D125862C890055882C /* MultiTableViewCell.swift */; };
 		2CC1C9F725A3531500D4F59E /* RealmBaseFunctional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C9F625A3531500D4F59E /* RealmBaseFunctional.swift */; };
@@ -55,6 +57,8 @@
 		2C6B478B25681A1E0046015D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C6B478D25681A1E0046015D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6CB38425A206DD00E76C3E /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		2C7C151125B89FA400BAD927 /* ProbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProbeViewController.swift; sourceTree = "<group>"; };
+		2CA442B825B84F7900056327 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		2CBCC1CF25862C3C0055882C /* MultiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiViewController.swift; sourceTree = "<group>"; };
 		2CBCC1D125862C890055882C /* MultiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiTableViewCell.swift; sourceTree = "<group>"; };
 		2CC1C9F625A3531500D4F59E /* RealmBaseFunctional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBaseFunctional.swift; sourceTree = "<group>"; };
@@ -116,7 +120,6 @@
 			children = (
 				2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */,
 				2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */,
-				2C55AF2F2594DE930001BE12 /* ItemsRealm.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 		2C6AA26225B1D40400A70F0E /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				2C55AF2F2594DE930001BE12 /* ItemsRealm.swift */,
 				2CC1C9F625A3531500D4F59E /* RealmBaseFunctional.swift */,
 			);
 			path = Realm;
@@ -162,6 +166,8 @@
 				2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */,
 				2C6B478D25681A1E0046015D /* Info.plist */,
 				2C6B477D25681A160046015D /* Products */,
+				2CA442B825B84F7900056327 /* ActivityIndicator.swift */,
+				2C7C151125B89FA400BAD927 /* ProbeViewController.swift */,
 			);
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
@@ -302,8 +308,10 @@
 				2C68FEE3257E90DC00F348F0 /* ItemCollectionViewCell.swift in Sources */,
 				2C57EA72257CF4E400B3E6E9 /* ItemStruct.swift in Sources */,
 				2C6CB38525A206DD00E76C3E /* CartTableViewCell.swift in Sources */,
+				2CA442B925B84F7900056327 /* ActivityIndicator.swift in Sources */,
 				2C53BD8D25714D8A00D5132C /* CategoryTableViewCell.swift in Sources */,
 				2CC1C9F925A3A2E000D4F59E /* FinishViewController.swift in Sources */,
+				2C7C151225B89FA400BAD927 /* ProbeViewController.swift in Sources */,
 				2C6B478425681A160046015D /* CategoriesViewController.swift in Sources */,
 				2CBCC1D225862C890055882C /* MultiTableViewCell.swift in Sources */,
 				2C5F793A257FED9D003D5A16 /* ItemViewController.swift in Sources */,
