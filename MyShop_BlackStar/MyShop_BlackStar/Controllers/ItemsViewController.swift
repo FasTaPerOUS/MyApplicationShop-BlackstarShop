@@ -15,9 +15,16 @@ class ItemsViewController: UIViewController, ItemsLoad {
     var urlString: String = "https://blackstarshop.ru/index.php?route=api/v1/products&cat_id="
     var info = [Item]()
     var items = [OneItemWithAllColors]()
+    
+    var myAI: ActivityIndicator?
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        myAI = ActivityIndicator(view: self.view)
+        DispatchQueue.main.async {
+            super.viewDidLoad()
+            self.startAnimating()
+        }
+        
         itemsLoad(completion: { result in
         switch result {
             case .success(let z):
@@ -28,16 +35,18 @@ class ItemsViewController: UIViewController, ItemsLoad {
                 self.creatingItemsForCollection()
                 DispatchQueue.main.async {
                     self.itemsCollectionView.reloadData()
+                    self.stopAnimating()
                 }
             case .failure(let err):
                 DispatchQueue.main.async {
                     self.itemsCollectionView.isHidden = true
+                    self.stopAnimating()
                 }
                 print(err.localizedDescription)
             }
         })
     }
-    
+        
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UICollectionViewCell, let index = itemsCollectionView.indexPath(for: cell) {
@@ -128,4 +137,18 @@ extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return CGSize(width: cellWidth - 5, height: 67 + (cellWidth * 84 / 63) - 20)
     }
     
+}
+
+extension ItemsViewController: AIFunctional {
+    func startAnimating() {
+        myAI!.activityIndicator.startAnimating()
+        self.view.addSubview(myAI!.backgorundView)
+        self.view.addSubview(myAI!.activityIndicator)
+    }
+    
+    func stopAnimating() {
+        myAI!.activityIndicator.stopAnimating()
+        myAI!.activityIndicator.removeFromSuperview()
+        myAI!.backgorundView.removeFromSuperview()
+    }
 }
