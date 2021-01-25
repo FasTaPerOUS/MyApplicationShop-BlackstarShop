@@ -18,9 +18,14 @@ class SubCategoriesViewController: UIViewController {
     var myAI: ActivityIndicator?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
         myAI = ActivityIndicator(view: self.view)
-        info.sort(by: {$0.sortOrder < $1.sortOrder && $0.name < $1.name})
+        startAnimating()
+        DispatchQueue.main.async {
+            super.viewDidLoad()
+            self.info.sort(by: {$0.sortOrder < $1.sortOrder && $0.name < $1.name})
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

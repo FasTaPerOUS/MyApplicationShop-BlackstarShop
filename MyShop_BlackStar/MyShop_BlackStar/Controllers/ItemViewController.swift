@@ -36,19 +36,37 @@ class ItemViewController: UIViewController {
     var currImageIndex = 0
     var images = [UIImage]()
     
+    var myAI: ActivityIndicator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        for var el in info.productImages {
-            el.sort(by: {$0.sortOrder < $1.sortOrder})
+        myAI = ActivityIndicator(view: self.view)
+        DispatchQueue.main.async {
+            self.startAnimating()
+            for var el in self.info.productImages {
+                el.sort(by: {$0.sortOrder < $1.sortOrder})
+            }
+            if self.checker == 1 {
+                self.addItemButton.isHidden = true
+            }
+            self.addItemButton.layer.cornerRadius = 15
+            self.mainLabelsUpdate()
+            self.checkAndUpdateColors()
+            self.createArrayOfImages()
+            self.checkLeftRightButtons()
+            self.stopAnimating()
         }
-        if checker == 1 {
-            addItemButton.isHidden = true
-        }
-        addItemButton.layer.cornerRadius = 15
-        mainLabelsUpdate()
-        checkAndUpdateColors()
-        createArrayOfImages()
-        checkLeftRightButtons()
+//        for var el in info.productImages {
+//            el.sort(by: {$0.sortOrder < $1.sortOrder})
+//        }
+//        if checker == 1 {
+//            addItemButton.isHidden = true
+//        }
+//        addItemButton.layer.cornerRadius = 15
+//        mainLabelsUpdate()
+//        checkAndUpdateColors()
+//        createArrayOfImages()
+//        checkLeftRightButtons()
         // Do any additional setup after loading the view.
     }
     
@@ -182,6 +200,7 @@ extension ItemViewController: ItemControllerDelegate {
         object.price = Int(info.price[currIndex]) ?? 99999
         object.oldPrice = Int(info.oldPrice[currIndex]) ?? 99999
         object.tag = info.tag[currIndex]
+        object.quantity = 0
         try! realm.write {
             realm.add(object)
         }
@@ -198,3 +217,18 @@ extension ItemViewController: ItemControllerDelegate {
         checkLeftRightButtons()
     }
 }
+
+extension ItemViewController: AIFunctional {
+    func startAnimating() {
+        myAI!.activityIndicator.startAnimating()
+        self.view.addSubview(myAI!.backgorundView)
+        self.view.addSubview(myAI!.activityIndicator)
+    }
+    
+    func stopAnimating() {
+        myAI!.activityIndicator.stopAnimating()
+        myAI!.activityIndicator.removeFromSuperview()
+        myAI!.backgorundView.removeFromSuperview()
+    }
+}
+	
