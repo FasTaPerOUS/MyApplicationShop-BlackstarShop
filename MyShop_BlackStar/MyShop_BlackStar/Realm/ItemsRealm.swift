@@ -11,4 +11,5 @@ class ItemsRealm: Object {
     @objc dynamic var price = 0
     @objc dynamic var oldPrice = 0
     @objc dynamic var tag = ""
+    @objc dynamic var quantity = 0
 }
