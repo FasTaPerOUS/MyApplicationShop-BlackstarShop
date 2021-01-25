@@ -268,11 +268,11 @@
             <objects>
                 <viewController id="T9V-f3-wWB" customClass="ItemViewController" customModule="MyShop_BlackStar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KCZ-VJ-cPH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbY-t6-f6g">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8V-vA-qnv">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="551"/>
@@ -543,21 +543,6 @@
             </objects>
             <point key="canvasLocation" x="5507" y="139"/>
         </scene>
-        <!--Probe View Controller-->
-        <scene sceneID="kzQ-EW-p4H">
-            <objects>
-                <viewController id="vk9-9b-1Bw" customClass="ProbeViewController" customModule="MyShop_BlackStar" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pXe-Cd-vMG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="4Ap-Jl-TmG"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tzN-IN-6zb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="35" y="-619"/>
-        </scene>
         <!--Магазин-->
         <scene sceneID="2Sf-Gb-jgJ">
             <objects>
@@ -825,6 +810,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NbO-Ci-jva"/>
-        <segue reference="uMv-F8-YHQ"/>
+        <segue reference="DBx-Qz-wT1"/>
     </inferredMetricsTieBreakers>
 </document>
