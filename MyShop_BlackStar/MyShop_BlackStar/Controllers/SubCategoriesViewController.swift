@@ -25,6 +25,7 @@ class SubCategoriesViewController: UIViewController {
             super.viewDidLoad()
             self.info.sort(by: {$0.sortOrder < $1.sortOrder && $0.name < $1.name})
         }
+        stopAnimating()
         
     }
     
