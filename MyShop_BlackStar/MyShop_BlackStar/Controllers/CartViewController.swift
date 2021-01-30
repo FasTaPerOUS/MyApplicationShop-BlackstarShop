@@ -48,11 +48,11 @@ class CartViewController: UIViewController {
         var sumP = 0
         for el in all {
             if el.oldPrice != 99999 {
-                sumPWD += Int(el.oldPrice)
+                sumPWD += Int(el.oldPrice * el.quantity)
             } else {
-                sumPWD += Int(el.price)
+                sumPWD += Int(el.price * el.quantity)
             }
-            sumP += Int(el.price)
+            sumP += Int(el.price * el.quantity)
         }
         priceLabel.text = "Стоимость: " + String(sumPWD)
         discountLabel.text = "Экономия: " + String(sumPWD - sumP)
@@ -91,9 +91,19 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         all = listAll()
         let cell = tableView.dequeueReusableCell(withIdentifier: "item") as! CartTableViewCell
+        
+        cell.index = indexPath.row
+        
         cell.nameLabel.text = all[indexPath.row].name
         cell.sizeLabel.text = "Размер: " + all[indexPath.row].size
-        cell.priceLabel.text = String(all[indexPath.row].price) + " ₽"
+        cell.priceLabel.text = String(all[indexPath.row].price * all[indexPath.row].quantity) + " ₽"
+        cell.quantityLabel.text = String( all[indexPath.row].quantity)
+        	
+        if all[indexPath.row].quantity == 1 {
+            cell.minusButton.isHidden = true
+        } else {
+            cell.minusButton.isHidden = false
+        }
         
         let url = URL(string: "https://blackstarshop.ru/" + all[indexPath.row].mainImageURL)!
         let data = try? Data(contentsOf: url)
@@ -103,7 +113,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
             cell.oldPriceLabel.isHidden = true
             cell.tagLabel.isHidden = true
         } else {
-            cell.oldPriceLabel.text = String(all[indexPath.row].oldPrice)
+            cell.oldPriceLabel.text = String(all[indexPath.row].oldPrice * all[indexPath.row].quantity)
             cell.tagLabel.text = all[indexPath.row].tag
         }
         return cell
@@ -122,7 +132,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension CartViewController: RealmTableFunctional {
     func countAll() -> Int {
-        let all = self.realm.objects(ItemsRealm.self)
+        let all = realm.objects(ItemsRealm.self)
         return all.count
     }
     
@@ -136,13 +146,13 @@ extension CartViewController: RealmTableFunctional {
     func remove() {
         let all = realm.objects(ItemsRealm.self)
         if all.count == 0 { return }
-        try! self.realm.write {
-            self.realm.delete(all)
+        try! realm.write {
+            realm.delete(all)
         }
     }
     
     func listAll() -> [ItemsRealm] {
-        let all = self.realm.objects(ItemsRealm.self)
+        let all = realm.objects(ItemsRealm.self)
         return all.createArray()
     }
 
