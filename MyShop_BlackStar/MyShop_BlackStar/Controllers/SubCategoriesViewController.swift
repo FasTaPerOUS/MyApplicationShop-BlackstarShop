@@ -1,12 +1,7 @@
-//
-//  SubCategoriesViewController.swift
-//  infoShop_BlackStar
-//
-//  Created by Norik on 28.11.2020.
-//  Copyright © 2020 Norik. All rights reserved.
-//
-
 import UIKit
+import Alamofire
+import AlamofireImage
+
 
 class SubCategoriesViewController: UIViewController {
     
