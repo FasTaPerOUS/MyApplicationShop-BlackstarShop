@@ -3,5 +3,6 @@ use_frameworks!
 
 target 'MyShop_BlackStar' do
 pod 'RealmSwift'
+pod 'Alamofire'
 
 end
