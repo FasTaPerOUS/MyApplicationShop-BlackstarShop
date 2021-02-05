@@ -43,7 +43,7 @@ class CartViewController: UIViewController {
 
     }
     
-    func countPrices() {
+    @objc func countPrices() {
         var sumPWD = 0
         var sumP = 0
         for el in all {

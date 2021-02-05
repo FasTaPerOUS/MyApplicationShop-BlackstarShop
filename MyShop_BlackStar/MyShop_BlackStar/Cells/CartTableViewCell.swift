@@ -18,6 +18,7 @@ class CartTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         minusButton.layer.cornerRadius = minusButton.bounds.height / 2
+        minusButton.addTarget(nil, action: #selector(CartViewController.countPrices), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
