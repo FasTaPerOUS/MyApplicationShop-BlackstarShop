@@ -1,11 +1,3 @@
-//
-//  ItemViewController.swift
-//  MyShop_BlackStar
-//
-//  Created by Norik on 08.12.2020.
-//  Copyright © 2020 Norik. All rights reserved.
-//
-
 import UIKit
 import RealmSwift
 
@@ -41,33 +33,20 @@ class ItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myAI = ActivityIndicator(view: self.view)
+        for var el in self.info.productImages {
+            el.sort(by: {$0.sortOrder < $1.sortOrder})
+        }
+        if self.checker == 1 {
+            self.addItemButton.isHidden = true
+        }
+        self.addItemButton.layer.cornerRadius = 15
+        self.mainLabelsUpdate()
+        self.checkAndUpdateColors()
         DispatchQueue.main.async {
             self.startAnimating()
-            for var el in self.info.productImages {
-                el.sort(by: {$0.sortOrder < $1.sortOrder})
-            }
-            if self.checker == 1 {
-                self.addItemButton.isHidden = true
-            }
-            self.addItemButton.layer.cornerRadius = 15
-            self.mainLabelsUpdate()
-            self.checkAndUpdateColors()
             self.createArrayOfImages()
-            self.checkLeftRightButtons()
             self.stopAnimating()
         }
-//        for var el in info.productImages {
-//            el.sort(by: {$0.sortOrder < $1.sortOrder})
-//        }
-//        if checker == 1 {
-//            addItemButton.isHidden = true
-//        }
-//        addItemButton.layer.cornerRadius = 15
-//        mainLabelsUpdate()
-//        checkAndUpdateColors()
-//        createArrayOfImages()
-//        checkLeftRightButtons()
-        // Do any additional setup after loading the view.
     }
     
     func createArrayOfImages() {
@@ -85,6 +64,7 @@ class ItemViewController: UIViewController {
             images.append(UIImage(data: data!) ?? UIImage(data: errdata!)!)
         }
         imagesCollectionView.reloadData()
+        checkLeftRightButtons()
     }
     
     func checkLeftRightButtons() {
@@ -223,7 +203,6 @@ extension ItemViewController: ItemControllerDelegate {
         imagesCollectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: true)
         changeColorButton.setTitle(info.colorName[currIndex], for: .normal)
         createArrayOfImages()
-        checkLeftRightButtons()
     }
 }
 
