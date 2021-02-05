@@ -1,12 +1,7 @@
-//
-//  SubCategoriesViewController.swift
-//  infoShop_BlackStar
-//
-//  Created by Norik on 28.11.2020.
-//  Copyright © 2020 Norik. All rights reserved.
-//
-
 import UIKit
+import Alamofire
+import AlamofireImage
+
 
 class SubCategoriesViewController: UIViewController {
     
@@ -14,19 +9,42 @@ class SubCategoriesViewController: UIViewController {
     
     var info = [SubCategory]()
     var extraID: Int? = nil
+    let errImage = UIImageView()
     
     var myAI: ActivityIndicator?
     
+    var images = [UIImageView]()
+    
+    let errURL = URL(string: "https://wahki.mameau.com/images/0/0a/NoLogo.jpg")!
+    
     override func viewDidLoad() {
-        
         myAI = ActivityIndicator(view: self.view)
-        startAnimating()
+        super.viewDidLoad()
+
+        self.errImage.af.setImage(withURL: self.errURL)
         DispatchQueue.main.async {
-            super.viewDidLoad()
-            self.info.sort(by: {$0.sortOrder < $1.sortOrder && $0.name < $1.name})
+            self.startAnimating()
         }
-        stopAnimating()
-        
+        info.sort(by: {$0.sortOrder < $1.sortOrder && $0.name < $1.name})
+        for el in info {
+            if el.iconImage == "" {
+                DispatchQueue.main.async {
+                    self.images.append(self.errImage)
+                    self.subCategoriesTable.reloadData()
+                }
+            } else {
+                let url = URL(string: "https://blackstarshop.ru/" + el.iconImage)!
+                let image = UIImageView()
+                image.af.setImage(withURL: url)
+                DispatchQueue.main.async {
+                    self.images.append(image)
+                    self.subCategoriesTable.reloadData()
+                }
+            }
+        }
+        DispatchQueue.main.async {
+            self.stopAnimating()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,14 +66,10 @@ extension SubCategoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCategory") as! CategoryTableViewCell
-        if info[indexPath.row].iconImage != "" {
-            let url = URL(string: "https://blackstarshop.ru/" + info[indexPath.row].iconImage)!
-            let data = try? Data(contentsOf: url)
-            cell.logoImageView.image = UIImage(data: data!)
+        if images.count == 0 {
+            cell.logoImageView.image = errImage.image
         } else {
-            let url = URL(string: "https://wahki.mameau.com/images/0/0a/NoLogo.jpg")!
-            let data = try? Data(contentsOf: url)
-            cell.logoImageView.image = UIImage(data: data!)
+            cell.logoImageView.image = images[indexPath.row].image
         }
         cell.nameLabel.text = info[indexPath.row].name
         return cell
