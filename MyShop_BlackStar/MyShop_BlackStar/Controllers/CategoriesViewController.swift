@@ -23,6 +23,9 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
                 sum += el.quantity
             }
             tabItem.badgeValue = String(sum)
+            if sum == 0 {
+                tabItem.badgeValue = nil
+            }
         }
         DispatchQueue.main.async {
             self.startAnimating()
