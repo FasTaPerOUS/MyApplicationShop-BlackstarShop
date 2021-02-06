@@ -40,12 +40,18 @@ extension MultiViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let str = info[indexPath.row]
-        dismiss(animated: true, completion: nil)
         if checker == 0 {
             delegate?.updateInfo(index: indexPath.row)
+            dismiss(animated: true, completion: nil)
         } else {
+            textLabel.text = "Товар добавлен"
+            UIView.animate(withDuration: 1, animations: { self.textLabel.alpha = 0}, completion: {(nil) in
+                self.dismiss(animated: true, completion: nil)
+            })
             delegate?.addItem(withSize: str)
         }
+        
+        
     }
     
 }
