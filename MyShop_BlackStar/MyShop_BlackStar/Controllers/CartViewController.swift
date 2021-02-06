@@ -57,6 +57,18 @@ class CartViewController: UIViewController {
         priceLabel.text = "Стоимость: " + String(sumPWD)
         discountLabel.text = "Экономия: " + String(sumPWD - sumP)
         endPriceLabel.text = "Цена: " + String(sumP)
+        if let tabItems = tabBarController?.tabBar.items {
+            let tabItem = tabItems[1]
+            let all = self.realm.objects(ItemsRealm.self)
+            var sum = 0
+            for el in all {
+                sum += el.quantity
+            }
+            tabItem.badgeValue = String(sum)
+            if sum == 0 {
+                tabItem.badgeValue = nil
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,6 +105,7 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item") as! CartTableViewCell
         
         cell.index = indexPath.row
+        
         
         cell.nameLabel.text = all[indexPath.row].name
         cell.sizeLabel.text = "Размер: " + all[indexPath.row].size
@@ -138,6 +151,15 @@ extension CartViewController: RealmTableFunctional {
     
     func delete(index: Int) {
         let all = realm.objects(ItemsRealm.self)
+        if let tabItems = tabBarController?.tabBar.items {
+            let tabItem = tabItems[1]
+            let check = Int(tabItem.badgeValue!)! - all[index].quantity
+            if check == 0 {
+                tabItem.badgeValue = nil
+            } else {
+                tabItem.badgeValue = String(check)
+            }
+        }
         try! realm.write {
             realm.delete(all[index])
         }
@@ -148,6 +170,10 @@ extension CartViewController: RealmTableFunctional {
         if all.count == 0 { return }
         try! realm.write {
             realm.delete(all)
+        }
+        if let tabItems = tabBarController?.tabBar.items {
+            let tabItem = tabItems[1]
+            tabItem.badgeValue = nil
         }
     }
     
