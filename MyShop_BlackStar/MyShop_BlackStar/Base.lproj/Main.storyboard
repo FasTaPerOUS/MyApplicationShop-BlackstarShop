@@ -468,11 +468,12 @@
                         <outlet property="priceLabel" destination="A5Z-n6-E4W" id="f0I-hT-Oz3"/>
                         <outlet property="rightButton" destination="TuD-Uv-5D1" id="Q5s-gw-7ER"/>
                         <outlet property="spaceLayoutConstraint" destination="gTU-A3-7hP" id="zu3-2m-uwJ"/>
+                        <outlet property="viewOfScrollView" destination="Q8V-vA-qnv" id="qUu-sw-iuR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdp-Ew-i62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4586.9565217391309" y="138.61607142857142"/>
+            <point key="canvasLocation" x="4575" y="139"/>
         </scene>
         <!--Multi View Controller-->
         <scene sceneID="0qe-FE-g7l">
