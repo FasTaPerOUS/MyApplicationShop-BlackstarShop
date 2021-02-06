@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class CategoriesViewController: UIViewController, CategoriesLoad {
     
@@ -10,8 +11,19 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
     
     var myAI: ActivityIndicator?
     
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         myAI = ActivityIndicator(view: self.view)
+        if let tabItems = tabBarController?.tabBar.items {
+            let tabItem = tabItems[1]
+            let all = self.realm.objects(ItemsRealm.self)
+            var sum = 0
+            for el in all {
+                sum += el.quantity
+            }
+            tabItem.badgeValue = String(sum)
+        }
         DispatchQueue.main.async {
             self.startAnimating()
         }
