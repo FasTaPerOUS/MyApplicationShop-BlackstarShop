@@ -20,6 +20,7 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var currentColorLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var viewOfScrollView: UIView!
     
     @IBOutlet weak var spaceLayoutConstraint: NSLayoutConstraint!
 
@@ -115,6 +116,18 @@ class ItemViewController: UIViewController {
         }
         return arr
     }
+    
+    func itemAdded() {
+        if let tabItems = tabBarController?.tabBar.items {
+            let tabItem = tabItems[1]
+            let all = self.realm.objects(ItemsRealm.self)
+            var sum = 0
+            for el in all {
+                sum += el.quantity
+            }
+            tabItem.badgeValue = String(sum + 1)
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? MultiViewController, segue.identifier == "changeColor" {
@@ -168,6 +181,8 @@ extension ItemViewController: UICollectionViewDataSource {
 
 extension ItemViewController: ItemControllerDelegate {
     func addItem(withSize: String) {
+        print("\n\n\n\n\n\n\n\\n\n\n\n\n\n\\n\n\n", 2)
+        itemAdded()
         let all = self.realm.objects(ItemsRealm.self)
         for el in all {
             if el.name == info.name && el.colorName == info.colorName[currIndex] && el.size == withSize {
