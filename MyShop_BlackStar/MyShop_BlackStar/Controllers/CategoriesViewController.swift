@@ -73,8 +73,7 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
             let data = try? Data(contentsOf: url)
             cell.logoImageView.image = UIImage(data: data!)
         } else {
-            let url = URL(string: "https://wahki.mameau.com/images/0/0a/NoLogo.jpg")!
-            let data = try? Data(contentsOf: url)
+            let data = try? Data(contentsOf: errURL)
             cell.logoImageView.image = UIImage(data: data!)
         }
         cell.nameLabel.text = info[indexPath.row].myStruct.name

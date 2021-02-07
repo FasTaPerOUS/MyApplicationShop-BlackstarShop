@@ -105,7 +105,7 @@ extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         if items[indexPath.row].mainImage[0] != "" {
             url = URL(string: "https://blackstarshop.ru/" + items[indexPath.row].mainImage[0])!
         } else {
-            url = URL(string: "https://wahki.mameau.com/images/0/0a/NoLogo.jpg")!
+            url = errURL
         }
         let data = try? Data(contentsOf: url!)
         cell.itemImageView.image = UIImage(data: data!)

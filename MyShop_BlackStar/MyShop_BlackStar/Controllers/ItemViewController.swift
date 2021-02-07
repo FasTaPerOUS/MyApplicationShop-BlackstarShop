@@ -51,8 +51,7 @@ class ItemViewController: UIViewController {
     
     func createArrayOfImages() {
         images = []
-        let err = URL(string: "https://wahki.mameau.com/images/0/0a/NoLogo.jpg")
-        let errdata = try? Data(contentsOf: err!)
+        let errdata = try? Data(contentsOf: errURL)
         
         let main = URL(string: "https://blackstarshop.ru/" + info.mainImage[currIndex])
         let maindata = try? Data(contentsOf: main!)
