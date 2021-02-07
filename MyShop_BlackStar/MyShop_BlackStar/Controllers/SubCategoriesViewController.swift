@@ -1,7 +1,4 @@
 import UIKit
-import Alamofire
-import AlamofireImage
-
 
 class SubCategoriesViewController: UIViewController {
     
@@ -9,11 +6,13 @@ class SubCategoriesViewController: UIViewController {
     
     var info = [SubCategory]()
     var extraID: Int? = nil
-    let errImage = UIImageView()
+    var errImage = UIImageView()
     
     var myAI: ActivityIndicator?
     
     var images = [UIImageView]()
+    
+    let afClass = AlamofireImageClass()
     
     let errURL = URL(string: "https://wahki.mameau.com/images/0/0a/NoLogo.jpg")!
     
@@ -21,7 +20,7 @@ class SubCategoriesViewController: UIViewController {
         myAI = ActivityIndicator(view: self.view)
         super.viewDidLoad()
 
-        self.errImage.af.setImage(withURL: self.errURL)
+        errImage = afClass.setImage(image: errImage, url: errURL)
         DispatchQueue.main.async {
             self.startAnimating()
         }
@@ -34,8 +33,8 @@ class SubCategoriesViewController: UIViewController {
                 }
             } else {
                 let url = URL(string: "https://blackstarshop.ru/" + el.iconImage)!
-                let image = UIImageView()
-                image.af.setImage(withURL: url)
+                var image = UIImageView()
+                image = afClass.setImage(image: image, url: url)
                 DispatchQueue.main.async {
                     self.images.append(image)
                     self.subCategoriesTable.reloadData()
