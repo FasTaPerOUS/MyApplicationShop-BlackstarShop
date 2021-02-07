@@ -15,7 +15,7 @@
 		2C57EA72257CF4E400B3E6E9 /* ItemStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */; };
 		2C57EA74257D22C000B3E6E9 /* ItemsLoadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */; };
 		2C5BA79625D026E000DDFBAF /* RealmClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5BA79525D026E000DDFBAF /* RealmClass.swift */; };
-		2C5BA79825D04A4600DDFBAF /* AlamofireClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5BA79725D04A4600DDFBAF /* AlamofireClass.swift */; };
+		2C5BA79825D04A4600DDFBAF /* AlamofireImageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5BA79725D04A4600DDFBAF /* AlamofireImageClass.swift */; };
 		2C5F793A257FED9D003D5A16 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F7939257FED9D003D5A16 /* ItemViewController.swift */; };
 		2C64454A2572AA25006BDE7A /* SubCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */; };
 		2C64AD12257A4133005975F7 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD11257A4133005975F7 /* ItemsViewController.swift */; };
@@ -44,7 +44,7 @@
 		2C57EA71257CF4E400B3E6E9 /* ItemStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStruct.swift; sourceTree = "<group>"; };
 		2C57EA73257D22C000B3E6E9 /* ItemsLoadProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsLoadProtocol.swift; sourceTree = "<group>"; };
 		2C5BA79525D026E000DDFBAF /* RealmClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmClass.swift; sourceTree = "<group>"; };
-		2C5BA79725D04A4600DDFBAF /* AlamofireClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireClass.swift; sourceTree = "<group>"; };
+		2C5BA79725D04A4600DDFBAF /* AlamofireImageClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireImageClass.swift; sourceTree = "<group>"; };
 		2C5F7939257FED9D003D5A16 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		2C6445492572AA25006BDE7A /* SubCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesViewController.swift; sourceTree = "<group>"; };
 		2C64AD11257A4133005975F7 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				2C6B478D25681A1E0046015D /* Info.plist */,
 				2C6B477D25681A160046015D /* Products */,
 				2CA442B825B84F7900056327 /* ActivityIndicator.swift */,
-				2C5BA79725D04A4600DDFBAF /* AlamofireClass.swift */,
+				2C5BA79725D04A4600DDFBAF /* AlamofireImageClass.swift */,
 			);
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 				2C6669C825851EE90080848C /* PictureCollectionViewCell.swift in Sources */,
 				2C6B478225681A160046015D /* SceneDelegate.swift in Sources */,
 				2C64AD12257A4133005975F7 /* ItemsViewController.swift in Sources */,
-				2C5BA79825D04A4600DDFBAF /* AlamofireClass.swift in Sources */,
+				2C5BA79825D04A4600DDFBAF /* AlamofireImageClass.swift in Sources */,
 				2CBCC1D025862C3C0055882C /* MultiViewController.swift in Sources */,
 				2C55D2FB2577B5D400E0765C /* CategoryStruct.swift in Sources */,
 				2C573EBE258E5F6C00748490 /* CartViewController.swift in Sources */,
