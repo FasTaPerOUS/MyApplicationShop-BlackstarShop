@@ -80,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C5BA79925D04D8900DDFBAF /* AlamofireImage */ = {
+			isa = PBXGroup;
+			children = (
+				2C5BA79725D04A4600DDFBAF /* AlamofireImageClass.swift */,
+			);
+			path = AlamofireImage;
+			sourceTree = "<group>";
+		};
 		2C6AA25E25B1CF7C00A70F0E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,13 +169,13 @@
 				2C6AA25E25B1CF7C00A70F0E /* Controllers */,
 				2C6AA26125B1D3BF00A70F0E /* Items */,
 				2C6AA26225B1D40400A70F0E /* Realm */,
+				2C5BA79925D04D8900DDFBAF /* AlamofireImage */,
 				2C6B478525681A160046015D /* Main.storyboard */,
 				2C6B478825681A1E0046015D /* Assets.xcassets */,
 				2C6B478A25681A1E0046015D /* LaunchScreen.storyboard */,
 				2C6B478D25681A1E0046015D /* Info.plist */,
 				2C6B477D25681A160046015D /* Products */,
 				2CA442B825B84F7900056327 /* ActivityIndicator.swift */,
-				2C5BA79725D04A4600DDFBAF /* AlamofireImageClass.swift */,
 			);
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
