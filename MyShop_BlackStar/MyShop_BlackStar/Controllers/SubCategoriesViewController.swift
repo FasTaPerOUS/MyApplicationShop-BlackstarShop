@@ -14,8 +14,6 @@ class SubCategoriesViewController: UIViewController {
     
     let afClass = AlamofireImageClass()
     
-    let errURL = URL(string: "https://wahki.mameau.com/images/0/0a/NoLogo.jpg")!
-    
     override func viewDidLoad() {
         myAI = ActivityIndicator(view: self.view)
         super.viewDidLoad()
