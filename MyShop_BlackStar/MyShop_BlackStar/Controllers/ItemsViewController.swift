@@ -1,11 +1,3 @@
-//
-//  ItemsViewController.swift
-//  MyShop_BlackStar
-//
-//  Created by Norik on 04.12.2020.
-//  Copyright © 2020 Norik. All rights reserved.
-//
-
 import UIKit
 
 class ItemsViewController: UIViewController, ItemsLoad {

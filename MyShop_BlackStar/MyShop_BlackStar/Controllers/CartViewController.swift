@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 class CartViewController: UIViewController {
     
@@ -10,20 +9,20 @@ class CartViewController: UIViewController {
     
     @IBOutlet weak var checkoutButton: UIButton!
     
-    let realm = try! Realm()
+    let realmClass = RealmClass()
     
     var all = [ItemsRealm]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkoutButton.layer.cornerRadius = 15
-        all = listAll()
+        all = realmClass.listAll()
         countPrices()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        all = listAll()
+        all = realmClass.listAll()
         tableView.reloadData()
         countPrices()
     }
@@ -31,8 +30,14 @@ class CartViewController: UIViewController {
     @IBAction func deleteCart() {
         let alert = UIAlertController(title: "Очистить корзину", message: "Вы точно уверены что хотите очистить всю корзину?", preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "Очистить", style: .default) { (action: UIAlertAction!) -> Void in
-            self.remove()
-            self.all = self.listAll()
+            self.realmClass.remove()
+            
+            if let tabItems = self.tabBarController?.tabBar.items {
+                let tabItem = tabItems[1]
+                tabItem.badgeValue = nil
+            }
+            
+            self.all = self.realmClass.listAll()
             self.countPrices()
             self.tableView.reloadData()
         }
@@ -59,13 +64,8 @@ class CartViewController: UIViewController {
         endPriceLabel.text = "Цена: " + String(sumP)
         if let tabItems = tabBarController?.tabBar.items {
             let tabItem = tabItems[1]
-            let all = self.realm.objects(ItemsRealm.self)
-            var sum = 0
-            for el in all {
-                sum += el.quantity
-            }
-            tabItem.badgeValue = String(sum)
-            if sum == 0 {
+            tabItem.badgeValue = String(realmClass.countItems())
+            if tabItem.badgeValue == "0" {
                 tabItem.badgeValue = nil
             }
         }
@@ -74,18 +74,12 @@ class CartViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let index = tableView.indexPath(for: cell) {
             let vc = segue.destination as! ItemViewController
-            let all = realm.objects(ItemsRealm.self)
-            let el = all[index.row]
-            var pr = [ProductImage]()
-            for a in el.productImagesURL {
-                pr.append(ProductImage(imageURL: a, sortOrder: 0))
-            }
-            vc.info = OneItemWithAllColors(name: el.name, description: el.descript, colorName: [el.colorName], sortOrder: 0, mainImage: [el.mainImageURL], productImages: [pr], offers: [], price: [String(el.price)], oldPrice: [String(el.oldPrice)], tag: [el.tag])
+            vc.info = realmClass.createItemType(index: index.row)
             vc.checker = 1
         }
         if segue.identifier == "goodbye" {
             let vc = segue.destination as! FinishViewController
-            if countAll() == 0 {
+            if realmClass.countAll() == 0 {
                 vc.text = "Добавьте товары в корзину чтобы оформить заказ.\nЧтобы продолжить тестирование нажмите кнопку назад."
             } else {
                 vc.text = "Вот и конец моего проекта, вполне вероятно, что он будет дальше развиваться, желаем удачи!\nЧтобы продолжить тестирование нажмите кнопку назад."
@@ -97,11 +91,11 @@ class CartViewController: UIViewController {
 
 extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countAll()
+        return realmClass.countAll()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        all = listAll()
+        all = realmClass.listAll()
         let cell = tableView.dequeueReusableCell(withIdentifier: "item") as! CartTableViewCell
         
         cell.index = indexPath.row
@@ -134,58 +128,20 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            delete(index: indexPath.row)
-            all = listAll()
+            if let tabItems = tabBarController?.tabBar.items {
+                let tabItem = tabItems[1]
+                let check = Int(tabItem.badgeValue!)! - realmClass.delete(index: indexPath.row)
+                if check == 0 {
+                    tabItem.badgeValue = nil
+                } else {
+                    tabItem.badgeValue = String(check)
+                }
+            }
+            
+            all = realmClass.listAll()
             countPrices()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
         }
-    }
-}
-
-extension CartViewController: RealmTableFunctional {
-    func countAll() -> Int {
-        let all = realm.objects(ItemsRealm.self)
-        return all.count
-    }
-    
-    func delete(index: Int) {
-        let all = realm.objects(ItemsRealm.self)
-        if let tabItems = tabBarController?.tabBar.items {
-            let tabItem = tabItems[1]
-            let check = Int(tabItem.badgeValue!)! - all[index].quantity
-            if check == 0 {
-                tabItem.badgeValue = nil
-            } else {
-                tabItem.badgeValue = String(check)
-            }
-        }
-        try! realm.write {
-            realm.delete(all[index])
-        }
-    }
-    
-    func remove() {
-        let all = realm.objects(ItemsRealm.self)
-        if all.count == 0 { return }
-        try! realm.write {
-            realm.delete(all)
-        }
-        if let tabItems = tabBarController?.tabBar.items {
-            let tabItem = tabItems[1]
-            tabItem.badgeValue = nil
-        }
-    }
-    
-    func listAll() -> [ItemsRealm] {
-        let all = realm.objects(ItemsRealm.self)
-        return all.createArray()
-    }
-
-}
-
-extension Results {
-    func createArray() -> [Element] {
-        return self.map { $0 }
     }
 }

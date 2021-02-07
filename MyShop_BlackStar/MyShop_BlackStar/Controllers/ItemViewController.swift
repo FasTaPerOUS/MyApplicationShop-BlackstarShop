@@ -1,9 +1,6 @@
 import UIKit
-import RealmSwift
 
 class ItemViewController: UIViewController {
-    
-    let realm = try! Realm()
     
     var delegate: ItemControllerDelegate?
     
@@ -30,6 +27,8 @@ class ItemViewController: UIViewController {
     var images = [UIImage]()
     
     var myAI: ActivityIndicator?
+    
+    let realmClass = RealmClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,12 +119,7 @@ class ItemViewController: UIViewController {
     func itemAdded() {
         if let tabItems = tabBarController?.tabBar.items {
             let tabItem = tabItems[1]
-            let all = self.realm.objects(ItemsRealm.self)
-            var sum = 0
-            for el in all {
-                sum += el.quantity
-            }
-            tabItem.badgeValue = String(sum + 1)
+            tabItem.badgeValue = String(realmClass.countItems())
         }
     }
 
@@ -181,33 +175,8 @@ extension ItemViewController: UICollectionViewDataSource {
 
 extension ItemViewController: ItemControllerDelegate {
     func addItem(withSize: String) {
-        print("\n\n\n\n\n\n\n\\n\n\n\n\n\n\\n\n\n", 2)
+        realmClass.addElement(info: info, index: currIndex, size: withSize)
         itemAdded()
-        let all = self.realm.objects(ItemsRealm.self)
-        for el in all {
-            if el.name == info.name && el.colorName == info.colorName[currIndex] && el.size == withSize {
-                try! realm.write {
-                    el.quantity += 1
-                }
-                return
-            }
-        }
-        let object = ItemsRealm()
-        object.name = info.name
-        object.descript = info.description
-        object.colorName = info.colorName[currIndex]
-        object.mainImageURL = info.mainImage[currIndex]
-        for el in info.productImages[currIndex] {
-            object.productImagesURL.append(el.imageURL)
-        }
-        object.size = withSize
-        object.price = Int(info.price[currIndex]) ?? 99999
-        object.oldPrice = Int(info.oldPrice[currIndex]) ?? 99999
-        object.tag = info.tag[currIndex]
-        object.quantity = 1
-        try! realm.write {
-            realm.add(object)
-        }
     }
     
     func updateInfo(index: Int) {

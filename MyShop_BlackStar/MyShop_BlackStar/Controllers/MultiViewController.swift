@@ -1,6 +1,5 @@
 import UIKit
 
-
 protocol ItemControllerDelegate {
     func updateInfo(index: Int)
     func addItem(withSize: String)

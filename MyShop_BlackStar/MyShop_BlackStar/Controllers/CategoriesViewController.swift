@@ -1,7 +1,6 @@
 import UIKit
-import RealmSwift
 
-class CategoriesViewController: UIViewController, CategoriesLoad {
+class CategoriesViewController: UIViewController, CategoriesLoad{
     
     var info = [CompareIDCategory]()
     
@@ -11,19 +10,14 @@ class CategoriesViewController: UIViewController, CategoriesLoad {
     
     var myAI: ActivityIndicator?
     
-    let realm = try! Realm()
+    let realmClass = RealmClass()
     
     override func viewDidLoad() {
         myAI = ActivityIndicator(view: self.view)
         if let tabItems = tabBarController?.tabBar.items {
             let tabItem = tabItems[1]
-            let all = self.realm.objects(ItemsRealm.self)
-            var sum = 0
-            for el in all {
-                sum += el.quantity
-            }
-            tabItem.badgeValue = String(sum)
-            if sum == 0 {
+            tabItem.badgeValue = String(realmClass.countItems())
+            if tabItem.badgeValue == "0" {
                 tabItem.badgeValue = nil
             }
         }
