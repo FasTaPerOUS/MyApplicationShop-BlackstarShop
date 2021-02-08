@@ -53,12 +53,12 @@ class ItemViewController: UIViewController {
         images = []
         let errdata = try? Data(contentsOf: errURL)
         
-        let main = URL(string: "https://blackstarshop.ru/" + info.mainImage[currIndex])
+        let main = URL(string: mainURLString + info.mainImage[currIndex])
         let maindata = try? Data(contentsOf: main!)
         images.append(UIImage(data: maindata!) ?? UIImage(data: errdata!)!)
         
         for el in info.productImages[currIndex] {
-            let url = URL(string: "https://blackstarshop.ru/" + el.imageURL)
+            let url = URL(string: mainURLString + el.imageURL)
             let data = try? Data(contentsOf: url!)
             images.append(UIImage(data: data!) ?? UIImage(data: errdata!)!)
         }

@@ -101,9 +101,9 @@ extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ItemCollectionViewCell
         cell.nameLabel.text = items[indexPath.row].name
         
-        var url = URL(string: "https://blackstarshop.ru/")
+        var url = URL(string: mainURLString)
         if items[indexPath.row].mainImage[0] != "" {
-            url = URL(string: "https://blackstarshop.ru/" + items[indexPath.row].mainImage[0])!
+            url = URL(string: mainURLString + items[indexPath.row].mainImage[0])!
         } else {
             url = errURL
         }

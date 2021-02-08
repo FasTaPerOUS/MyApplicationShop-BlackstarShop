@@ -30,7 +30,7 @@ class SubCategoriesViewController: UIViewController {
                     self.subCategoriesTable.reloadData()
                 }
             } else {
-                let url = URL(string: "https://blackstarshop.ru/" + el.iconImage)!
+                let url = URL(string: mainURLString + el.iconImage)!
                 var image = UIImageView()
                 image = afClass.setImage(image: image, url: url)
                 DispatchQueue.main.async {

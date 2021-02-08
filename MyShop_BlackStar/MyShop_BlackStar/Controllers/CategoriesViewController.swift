@@ -3,8 +3,6 @@ import UIKit
 class CategoriesViewController: UIViewController, CategoriesLoad{
     
     var info = [CompareIDCategory]()
-    
-    let url = URL(string: "https://blackstarshop.ru/index.php?route=api/v1/categories")!
 
     @IBOutlet weak var categoriesTableView: UITableView!
     
@@ -48,7 +46,7 @@ class CategoriesViewController: UIViewController, CategoriesLoad{
     
     //парсинг
     func categoriesLoad(completion: @escaping (Result<Welcome, Error>) -> Void) {
-        URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
+        URLSession.shared.dataTask(with: categoriesURL, completionHandler: {(data, response, error) in
             guard let data = data else { return }
             let decoder = JSONDecoder()
             do {
@@ -69,7 +67,7 @@ extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "category") as! CategoryTableViewCell
         if info[indexPath.row].myStruct.iconImage != "" {
-            let url = URL(string: "https://blackstarshop.ru/" + info[indexPath.row].myStruct.iconImage)!
+            let url = URL(string: mainURLString + info[indexPath.row].myStruct.iconImage)!
             let data = try? Data(contentsOf: url)
             cell.logoImageView.image = UIImage(data: data!)
         } else {
