@@ -1,6 +1,6 @@
 import UIKit
 
-class CategoriesViewController: UIViewController, CategoriesLoad{
+class CategoriesViewController: UIViewController {
     
     var info = [CompareIDCategory]()
 
@@ -22,41 +22,20 @@ class CategoriesViewController: UIViewController, CategoriesLoad{
         DispatchQueue.main.async {
             self.startAnimating()
         }
-        categoriesLoad(completion: { result in
+        
+        Loader().categoriesLoad { result in
             switch result {
             case .success(let z):
                 DispatchQueue.main.async {
-                    for (key, value) in z {
-                        if key == "123" && value.name == "Предзаказ" { continue }
-                        self.info.append(CompareIDCategory(id: key, myStruct: value))
-                    }
-                    self.info.sort(by: {$0.myStruct.sortOrder < $1.myStruct.sortOrder})
+                    self.info = z
                     self.categoriesTableView.reloadData()
                     self.stopAnimating()
                 }
             case .failure(let err):
-                DispatchQueue.main.async {
-                    self.stopAnimating()
-                }
                 print(err.localizedDescription)
             }
-        })
-        super.viewDidLoad()
+        }
     }
-    
-    //парсинг
-    func categoriesLoad(completion: @escaping (Result<Welcome, Error>) -> Void) {
-        URLSession.shared.dataTask(with: categoriesURL, completionHandler: {(data, response, error) in
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-            do {
-                completion(.success(try decoder.decode(Welcome.self, from: data)))
-            } catch {
-                completion(.failure(error))
-            }
-        }).resume()
-    }
-
 }
 
 extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
