@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C1D39A32570226A00568DE0 /* CategoriesLoadProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */; };
 		2C53BD8D25714D8A00D5132C /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */; };
 		2C55AF302594DE930001BE12 /* ItemsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55AF2F2594DE930001BE12 /* ItemsRealm.swift */; };
 		2C55D2FB2577B5D400E0765C /* CategoryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */; };
@@ -22,6 +21,7 @@
 		2C64AD12257A4133005975F7 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64AD11257A4133005975F7 /* ItemsViewController.swift */; };
 		2C6669C825851EE90080848C /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6669C725851EE90080848C /* PictureCollectionViewCell.swift */; };
 		2C68FEE3257E90DC00F348F0 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68FEE2257E90DC00F348F0 /* ItemCollectionViewCell.swift */; };
+		2C69B07C25D16F1300966EE2 /* LoaderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69B07B25D16F1300966EE2 /* LoaderClass.swift */; };
 		2C6B478025681A160046015D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B477F25681A160046015D /* AppDelegate.swift */; };
 		2C6B478225681A160046015D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B478125681A160046015D /* SceneDelegate.swift */; };
 		2C6B478425681A160046015D /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6B478325681A160046015D /* CategoriesViewController.swift */; };
@@ -37,7 +37,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesLoadProtocol.swift; sourceTree = "<group>"; };
 		2C53BD8C25714D8A00D5132C /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		2C55AF2F2594DE930001BE12 /* ItemsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsRealm.swift; sourceTree = "<group>"; };
 		2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStruct.swift; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		2C64AD11257A4133005975F7 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		2C6669C725851EE90080848C /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C68FEE2257E90DC00F348F0 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C69B07B25D16F1300966EE2 /* LoaderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderClass.swift; sourceTree = "<group>"; };
 		2C6B477C25681A160046015D /* MyShop_BlackStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShop_BlackStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6B477F25681A160046015D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C6B478125681A160046015D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				2C55D2FA2577B5D400E0765C /* CategoryStruct.swift */,
-				2C1D39A22570226A00568DE0 /* CategoriesLoadProtocol.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -179,6 +178,7 @@
 				2C6B477D25681A160046015D /* Products */,
 				2CA442B825B84F7900056327 /* ActivityIndicator.swift */,
 				2C5BA79A25D04E2A00DDFBAF /* GlobalVars.swift */,
+				2C69B07B25D16F1300966EE2 /* LoaderClass.swift */,
 			);
 			path = MyShop_BlackStar;
 			sourceTree = "<group>";
@@ -327,11 +327,11 @@
 				2CBCC1D225862C890055882C /* MultiTableViewCell.swift in Sources */,
 				2C5F793A257FED9D003D5A16 /* ItemViewController.swift in Sources */,
 				2C55AF302594DE930001BE12 /* ItemsRealm.swift in Sources */,
-				2C1D39A32570226A00568DE0 /* CategoriesLoadProtocol.swift in Sources */,
 				2C5BA79B25D04E2A00DDFBAF /* GlobalVars.swift in Sources */,
 				2C6B478025681A160046015D /* AppDelegate.swift in Sources */,
 				2C6669C825851EE90080848C /* PictureCollectionViewCell.swift in Sources */,
 				2C6B478225681A160046015D /* SceneDelegate.swift in Sources */,
+				2C69B07C25D16F1300966EE2 /* LoaderClass.swift in Sources */,
 				2C64AD12257A4133005975F7 /* ItemsViewController.swift in Sources */,
 				2C5BA79825D04A4600DDFBAF /* AlamofireImageClass.swift in Sources */,
 				2CBCC1D025862C3C0055882C /* MultiViewController.swift in Sources */,
