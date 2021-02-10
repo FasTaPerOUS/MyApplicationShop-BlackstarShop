@@ -15,8 +15,6 @@ class MultiViewController: UIViewController {
     
     var delegate: ItemControllerDelegate?
     
-//    @IBOutlet weak var multiTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         textLabel.text = text

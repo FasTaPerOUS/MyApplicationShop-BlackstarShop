@@ -20,19 +20,5 @@ class Loader {
             }
         }).resume()
     }
-
-    func itemsLoad(completion: @escaping (Result<ItemsWithID, Error>) -> Void) {
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) in
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-            do {
-                completion(.success(try decoder.decode(ItemsWithID.self, from: data)))
-            } catch {
-                completion(.failure(error))
-            }
-        }).resume()
-    }
-
 }
 
