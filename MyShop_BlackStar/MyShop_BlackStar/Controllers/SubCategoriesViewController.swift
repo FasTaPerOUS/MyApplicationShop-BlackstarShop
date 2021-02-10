@@ -47,11 +47,11 @@ class SubCategoriesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let index = subCategoriesTable.indexPath(for: cell) {
             let vc = segue.destination as! ItemsViewController
-            vc.urlString += String(info[index.row].id)
+            vc.urlString += itemsURLString + String(info[index.row].id)
         }
         if let _ = sender as? UIButton {
             let vc = segue.destination as! ItemsViewController
-            vc.urlString += String(extraID!)
+            vc.urlString += itemsURLString + String(extraID!)
         }
     }
 }

@@ -4,7 +4,7 @@ class ItemsViewController: UIViewController, ItemsLoad {
     
     @IBOutlet weak var itemsCollectionView: UICollectionView!
     
-    var urlString: String = "https://blackstarshop.ru/index.php?route=api/v1/products&cat_id="
+    var urlString: String = ""
     var info = [Item]()
     var items = [OneItemWithAllColors]()
     
